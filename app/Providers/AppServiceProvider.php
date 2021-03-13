@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Schema;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -31,5 +32,7 @@ class AppServiceProvider extends ServiceProvider
         \App\Models\Link::observe(\App\Observers\LinkObserver::class);
 
         \Illuminate\Pagination\Paginator::useBootstrap();
+
+        Schema::defaultStringLength(191);
     }
 }
